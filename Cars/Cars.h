@@ -27,4 +27,8 @@ class Car {
 		int getYear() {
 			return year;
 		}
+
+		friend ostream& operator << (ostream &os, const Car &car) {
+			return os << to_string(car.year) + " " + car.make + " " + car.model;
+		}
 };
