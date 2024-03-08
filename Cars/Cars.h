@@ -7,6 +7,7 @@ class Car {
 		string make;
 		string model;
 		int year;
+		int vin;
 
 	public:
 		void setMake(string m) {
@@ -18,6 +19,9 @@ class Car {
 		void setYear(int i) {
 			year = i;
 		}
+		void setVIN(int i) {
+			vin = i;
+		}
 		string getMake() {
 			return make;
 		}
@@ -27,8 +31,13 @@ class Car {
 		int getYear() {
 			return year;
 		}
+		int getVIN() {
+			return vin;
+		}
+
+		bool operator == (const Car& car) const { return (make == car.make) && (model == car.model) && (year == car.year) && (vin == car.vin); }
 
 		friend ostream& operator << (ostream &os, const Car &car) {
-			return os << to_string(car.year) + " " + car.make + " " + car.model;
+			return os << to_string(car.year) + " " + car.make + " " + car.model + " " + to_string(car.vin);
 		}
 };
